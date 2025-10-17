@@ -1,0 +1,43 @@
+flush ruleset
+
+table inet filter {
+  chain input {
+    type filter hook input priority filter;
+    policy accept;
+  }
+
+  chain forward {
+    type filter hook forward priority filter;
+    policy accept;
+  }
+
+  chain output {
+    type filter hook output priority filter;
+    policy accept;
+  }
+}
+
+table inet nat {
+  chain prerouting {
+    type nat hook prerouting priority dstnat;
+    policy accept;
+
+    ip daddr 198.18.0.0/16 tcp dport != 7892 redirect to :7892
+    ip daddr 198.18.0.0/16 udp dport != 7892 redirect to :7892
+  }
+
+  chain postrouting {
+    type nat hook postrouting priority srcnat;
+    policy accept;
+  }
+
+  chain input {
+    type nat hook input priority filter;
+    policy accept;
+  }
+
+  chain output {
+    type nat hook output priority filter;
+    policy accept;
+  }
+}
