@@ -22,9 +22,13 @@ table inet nat {
     type nat hook prerouting priority dstnat;
     policy accept;
 
-    ip daddr 198.18.0.0/16 tcp dport != 7892 redirect to :7892
-    ip daddr 198.18.0.0/16 udp dport != 7892 redirect to :7892
+    ip protocol udp udp dport 53 redirect to :1053
+    ip protocol tcp tcp dport 53 redirect to :1053
+    # use tproxy instead of redirect, see table tp
+    # ip daddr 198.18.0.0/16 tcp dport != 7892 redirect to :7892
+    # ip daddr 198.18.0.0/16 udp dport != 7892 redirect to :7892
   }
+  
 
   chain postrouting {
     type nat hook postrouting priority srcnat;
@@ -41,5 +45,15 @@ table inet nat {
   chain output {
     type nat hook output priority filter;
     policy accept;
+  }
+}
+
+table inet tp {
+  chain prerouting {
+    type filter hook prerouting priority mangle; 
+    policy accept;
+
+    ip daddr 198.18.0.0/16 meta l4proto tcp tproxy ip to :7894 meta mark set 0x7d0 counter 
+    ip daddr 198.18.0.0/16 meta l4proto udp tproxy ip to :7894 meta mark set 0x7d0 counter
   }
 }

@@ -12,19 +12,14 @@
       ./ssh.nix
       ./mihomo.nix
       ./nft.nix
+      ./users.nix
+      ./nix-daemon.nix
+      ./kernel.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  users.users.alice = {
-    isNormalUser = true;
-    description = "Alice";
-    extraGroups = [ "wheel" ]; # Sudo access
-    shell = pkgs.bash;
-    home = "/home/alice";
-  };
 
   environment.systemPackages = with pkgs; [ 
     vim 
@@ -51,6 +46,10 @@
     pciutils
     usbutils
     mihomo
+    gcc
+    bash
+    conntrack-tools
+    gnumake
   ];
 
   environment.variables = {
