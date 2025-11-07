@@ -1,0 +1,79 @@
+proxy-groups:
+  - name: 🔰 代理
+    type: select
+    proxies:
+      - 🎯 直连
+  - name: 📹 YouTube
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: 📺 Bilibili
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+  - name: 🎥 Netflix
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: 📲 Telegram
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: 🎮 Steam
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: 🤖 OpenAi
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: 📺 巴哈姆特
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: 🍎 Apple
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+  - name: Ⓜ️ Microsoft
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+  - name: 🌍 International-Media
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: 🌏 China-Media
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+  - name: 🎯 直连
+    type: select
+    proxies:
+      - DIRECT
+  - name: 🐟 Others
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+  - name: JETBRAIN
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+  - name: SAP
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理

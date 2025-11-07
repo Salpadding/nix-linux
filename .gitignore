@@ -1,4 +1,3 @@
-conf
 *.html
 *.sh
 .DS_Store
@@ -7,4 +6,5 @@ cred.mk
 local
 dist
 secrets.json
-opt
+opt/lib/mihomo
+opt/conf/dnsmasq/dns

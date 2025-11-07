@@ -1,0 +1,7 @@
+rules:
+  - 'DOMAIN-SUFFIX,jetbrains.com,JETBRAIN'
+  - 'DOMAIN-SUFFIX,jetbrains.team,JETBRAIN'
+  - 'DOMAIN-SUFFIX,sap.com,SAP'
+  - 'DOMAIN-SUFFIX,sap,SAP'
+  - 'DOMAIN-SUFFIX,ariba.com,SAP'
+  - 'DOMAIN-SUFFIX,hana.ondemand.com,SAP'

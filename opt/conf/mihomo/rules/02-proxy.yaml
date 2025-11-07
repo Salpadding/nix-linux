@@ -1,0 +1,13 @@
+rules:
+  - DOMAIN-KEYWORD,hitun,🔰 代理
+  - DOMAIN-KEYWORD,xn--90wwvt03e,🔰 代理
+  - DOMAIN-SUFFIX,crisp.chat,🔰 代理
+  - DOMAIN-SUFFIX,coalcloud.net,🔰 代理
+  - DOMAIN-SUFFIX,cmcuct.com,🔰 代理
+  - DOMAIN-SUFFIX,ccxyun.com,🔰 代理
+  - DOMAIN-SUFFIX,nathosts.com,🔰 代理
+  - DOMAIN-SUFFIX,kuaichedao.co,🔰 代理
+  - DOMAIN-SUFFIX,shop.bgp.sh,🔰 代理
+  - DOMAIN-SUFFIX,mugglepay.com,🔰 代理
+  - DOMAIN-SUFFIX,chime.aws,🔰 代理
+  - DOMAIN-SUFFIX,linkedin.com,🔰 代理
