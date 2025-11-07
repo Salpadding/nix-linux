@@ -13,7 +13,6 @@
       ./mihomo.nix
       ./nft.nix
       ./users.nix
-      ./nix-daemon.nix
       ./kernel.nix
       ./dnsmasq.nix
       ./docker.nix

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  constants = import ./constants.nix;
+  constants = builtins.fromJSON (builtins.readFile ./constants.json);
   mihomoUid = builtins.toString constants.mihomoUid;
   tproxyRouteTable = builtins.toString constants.tproxyRouteTable;
 in
@@ -14,7 +14,7 @@ in
     requires = ["network-online.target"];
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      ExecStart = lib.mkForce "${pkgs.mihomo}/bin/mihomo -d /opt/lib/mihomo -f /opt/conf/mihomo/router.yaml";
+      ExecStart = lib.mkForce "${pkgs.mihomo}/bin/mihomo -d /opt/lib/mihomo -f /opt/lib/mihomo/router.yaml";
       AmbientCapabilities = "CAP_NET_BIND_SERVICE CAP_NET_ADMIN CAP_NET_RAW";
       CapabilityBoundingSet = "CAP_NET_BIND_SERVICE CAP_NET_ADMIN CAP_NET_RAW";
       NoNewPrivileges = false;

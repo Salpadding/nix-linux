@@ -7,3 +7,4 @@ cred.mk
 local
 dist
 secrets.json
+opt

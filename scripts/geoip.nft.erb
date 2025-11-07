@@ -3,11 +3,11 @@ flush ruleset
 
 define dns_port          = 53
 define dns_redirect_port = 53
-define redir_port       = 7892
+define redir_port        = 7892
 define tproxy_port       = 7894
 define fakeip_range_v4   = 198.18.0.0/16
 define wan_ifname        = "wan"
-define mihomo_uid        = 2000
+define mihomo_uid        = <%= ENV["MIHOMO_UID"] %>
 define fwmark            = $mihomo_uid
 define dnsmasq_uid       = 995
 define priority_pre_mangle = -160
