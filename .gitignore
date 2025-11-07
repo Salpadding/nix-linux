@@ -3,3 +3,7 @@ conf
 *.sh
 .DS_Store
 metacubexd
+cred.mk
+local
+dist
+secrets.json

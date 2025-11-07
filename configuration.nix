@@ -15,6 +15,10 @@
       ./users.nix
       ./nix-daemon.nix
       ./kernel.nix
+      ./dnsmasq.nix
+      ./docker.nix
+      ./containers.nix
+      ./env.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -50,11 +54,9 @@
     bash
     conntrack-tools
     gnumake
+    arp-scan
+    go
   ];
-
-  environment.variables = {
-    EDITOR = "vim";
-  };
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";

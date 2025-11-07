@@ -1,6 +1,9 @@
 
 { config, lib, pkgs, ... }:
 
+let 
+  constants = builtins.fromJSON (builtins.readFile ./constants.json);
+in
 {
   users.users.alice = {
     isNormalUser = true;
@@ -15,10 +18,10 @@
 
     description = "mihomo";
     group = "mihomo";
-    uid = 2000;
+    uid = constants.mihomoUid;
   };
 
   users.groups.mihomo = {
-    gid = 2000;
+    gid = constants.mihomoUid;
   };
 }
