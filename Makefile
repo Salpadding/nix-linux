@@ -18,7 +18,7 @@ sync: FORCE
 
 
 rebuild: sync
-	ssh $(TARGET) 'nixos-rebuild switch --show-trace'
+	ssh $(TARGET) 'NIX_DEBUG=1 nixos-rebuild switch --show-trace --keep-failed'
 
 update/china-dns: mkdir FORCE
 	./scripts/update-china-dns.rb -k $(GITHUB_TOKEN) -d opt/conf/dnsmasq/dns

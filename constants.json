@@ -1,4 +1,5 @@
 {
     "mihomoUid": 2000,
-    "tproxyRouteTable": 100
+    "tproxyRouteTable": 100,
+    "coreDnsPort": 5353
 }

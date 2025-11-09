@@ -18,6 +18,8 @@
       ./docker.nix
       ./containers.nix
       ./env.nix
+      ./nfs.nix
+      ./coredns.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -55,6 +57,7 @@
     gnumake
     arp-scan
     go
+    nfs-utils
   ];
 
   # Set your time zone.

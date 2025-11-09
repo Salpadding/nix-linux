@@ -9,6 +9,10 @@
         "max-size" = "32m";
         "max-file" = "3";
       };
+      hosts = [
+        "unix:///var/run/docker.sock"
+        "tcp://127.0.0.1:2375"
+      ];
     };
   };
 

@@ -14,6 +14,9 @@ let
     http://verdaccio.router.i.home {
       reverse_proxy http://verdaccio:4873
     }
+    http://kellnr.router.i.home {
+      reverse_proxy http://kellnr:8000
+    }
   '';
   secrets = builtins.fromJSON (builtins.readFile ./secrets.json);
 in
@@ -25,6 +28,7 @@ in
     "d /var/lib/verdaccio 0750 10001 10001 -"
     "d /var/lib/verdaccio/storage 0770 10001 10001 -"
     "d /var/lib/verdaccio/plugins 0770 10001 10001 -"
+    "d /var/lib/kellnr 0770 root root -"
   ];
   virtualisation.oci-containers = {
     backend = "docker"; # 或 "podman"
@@ -60,6 +64,7 @@ in
         ATHENS_DISK_STORAGE_ROOT = "/var/lib/athens";
         ATHENS_LOG_LEVEL = "info";
         ATHENS_GITHUB_TOKEN = secrets.githubToken;
+        ATHENS_GLOBAL_ENDPOINT = "https://goproxy.cn/";
       };
       networks = [ "homelab" ];
       log-driver = "local";
@@ -69,6 +74,17 @@ in
       volumes = [
         "/var/lib/verdaccio/storage:/verdaccio/storage"
         "/var/lib/verdaccio/plugins:/verdaccio/plugins"
+      ];
+      networks = [ "homelab" ];
+      log-driver = "local";
+    };
+    containers.kellnr = {
+      image = "ghcr.io/kellnr/kellnr:5";
+      environment = {
+        "KELLNR_ORIGIN__HOSTNAME" = "kellnr.router.i.home";
+      };
+      volumes = [
+        "/var/lib/kellnr:/opt/kdata"
       ];
       networks = [ "homelab" ];
       log-driver = "local";

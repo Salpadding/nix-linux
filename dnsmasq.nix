@@ -8,7 +8,7 @@
       domain = "lan";
       interface-name = ["router.lan,wan" "router.lan,lan"];
       interface = [ "wan" "lan"];
-      dhcp-range = [ "wan,192.168.1.2,192.168.1.249,12m" "lan,192.168.16.2,192.168.16.249,12m" ];
+      dhcp-range = [ "wan,192.168.1.2,192.168.1.249,6h" "lan,192.168.16.2,192.168.16.249,6h" ];
       local = "/lan/";
       expand-hosts = true;
       dhcp-option = [
@@ -26,6 +26,7 @@
       conf-dir = "/opt/conf/dnsmasq/dns/,*.conf";
       server = [
         "127.0.0.1#1053"
+        "/docker/127.0.0.1#5353"
       ];
       auth-server = ["i.home,dummy0"];
       auth-zone = ["i.home,lan/4,wan/4"];
