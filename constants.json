@@ -1,5 +1,6 @@
 {
     "mihomoUid": 2000,
     "tproxyRouteTable": 100,
-    "coreDnsPort": 5353
+    "coreDnsPort": 5353,
+    "caddyUid": 239
 }

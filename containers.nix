@@ -19,10 +19,12 @@ let
     }
   '';
   secrets = builtins.fromJSON (builtins.readFile ./secrets.json);
+  constants = builtins.fromJSON (builtins.readFile ./constants.json);
+  caddyUid = builtins.toString constants.caddyUid;
 in
 {
   systemd.tmpfiles.rules = [
-    "d /var/lib/caddy 0755 root root -"
+    "d /var/lib/caddy 0755 ${caddyUid} ${caddyUid} -"
     "d /var/lib/athens 0755 1000 1000 -"
     "d /var/lib/nexus 0770 200 200 -"
     "d /var/lib/verdaccio 0750 10001 10001 -"
@@ -40,20 +42,20 @@ in
       networks = [ "homelab" ];
       log-driver = "local";
     };
-    containers.caddy = {
-        image = "caddy:2-alpine";
-        ports = [
-          "80:80"
-        ];
-        volumes = [
-          # 只读挂载 Caddyfile
-          "${caddyfile}:/etc/caddy/Caddyfile:ro"
-          "/var/lib/caddy/data:/data"
-          "/var/lib/caddy/config:/config"
-        ];
-        networks = [ "homelab" ];
-        log-driver = "local";
-    };
+    # containers.caddy = {
+    #     image = "caddy:2-alpine";
+    #     ports = [
+    #       "80:80"
+    #     ];
+    #     volumes = [
+    #       # 只读挂载 Caddyfile
+    #       "${caddyfile}:/etc/caddy/Caddyfile:ro"
+    #       "/var/lib/caddy/data:/data"
+    #       "/var/lib/caddy/config:/config"
+    #     ];
+    #     networks = [ "homelab" ];
+    #     log-driver = "local";
+    # };
     containers.athens = {
       image = "gomods/athens";
       volumes = [

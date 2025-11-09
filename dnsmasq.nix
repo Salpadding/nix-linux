@@ -26,7 +26,7 @@
       conf-dir = "/opt/conf/dnsmasq/dns/,*.conf";
       server = [
         "127.0.0.1#1053"
-        "/docker/127.0.0.1#5353"
+        "/i.docker/127.0.0.1#5353"
       ];
       auth-server = ["i.home,dummy0"];
       auth-zone = ["i.home,lan/4,wan/4"];

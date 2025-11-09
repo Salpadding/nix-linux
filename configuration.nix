@@ -20,6 +20,7 @@
       ./env.nix
       ./nfs.nix
       ./coredns.nix
+      ./caddy.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
